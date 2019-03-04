@@ -1,7 +1,7 @@
 package factory.entity;
 
 
-public enum Eniveau {
+public enum ENiveau {
 	DEBUTANT, INTERMEDIAIRE, AVANCE, EXPERT
 
 }

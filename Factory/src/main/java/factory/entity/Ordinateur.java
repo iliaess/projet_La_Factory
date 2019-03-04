@@ -1,6 +1,5 @@
 package factory.entity;
 
-import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
@@ -32,7 +31,7 @@ public class Ordinateur extends Materiel{
 		this.stagiaire = stagiaire;
 	}
 	public Ordinateur() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 	public String getProcesseur() {
 		return processeur;

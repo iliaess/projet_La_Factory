@@ -1,9 +1,10 @@
 package factory.entity;
 
-import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
@@ -23,8 +24,8 @@ public class Matiere {
 	@Version
 	private Integer version;
 	
-	
-
+	@Enumerated(EnumType.STRING)
+	private ENiveau niveau;
 
 
 	public List<Module> getListModule() {
@@ -36,7 +37,6 @@ public class Matiere {
 	}
 
 	public Matiere() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getTitre() {
@@ -79,6 +79,12 @@ public class Matiere {
 		this.version = version;
 	}
 	
-	
+	public ENiveau getNiveau() {
+		return niveau;
+	}
+
+	public void setNiveau(ENiveau niveau) {
+		this.niveau = niveau;
+	}
 
 }

@@ -14,26 +14,23 @@ public class Module {
 	@Id
 	@GeneratedValue
 	private Long id;
-	
-	private Eniveau niveau;
-	
+
 	private Date debut;
 	private Date fin;
-	
-	
+
 	@ManyToOne
-	@JoinColumn(name="matiere_id")
+	@JoinColumn(name = "matiere_id")
 	private Matiere matiere;
-	
+
 	@ManyToOne
-	@JoinColumn(name="formateur_id")
+	@JoinColumn(name = "formateur_id")
 	private Formateur formateur;
-	
+
 	@Version
 	private Integer version;
-	
+
 	@ManyToOne
-	@JoinColumn(name="promo_id")
+	@JoinColumn(name = "promo_id")
 	private Promo promo;
 
 	public Module() {
@@ -45,15 +42,6 @@ public class Module {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-
-	public Eniveau getNiveau() {
-		return niveau;
-	}
-
-	public void setNiveau(Eniveau niveau) {
-		this.niveau = niveau;
 	}
 
 	public Date getDebut() {
@@ -95,12 +83,5 @@ public class Module {
 	public void setVersion(Integer version) {
 		this.version = version;
 	}
-	
-	
-	
-	
-	
-	
-	
 
 }

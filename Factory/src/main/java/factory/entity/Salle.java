@@ -14,7 +14,7 @@ public class Salle extends Materiel{
 	private Integer capacite;
 
 	public Salle() {
-	
+		super();
 	}
 
 	public Integer getCapacite() {

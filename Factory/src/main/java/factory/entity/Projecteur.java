@@ -14,7 +14,7 @@ public class Projecteur extends Materiel{
 	private String resolution;
 
 	public Projecteur() {
-	
+		super();
 	}
 
 	public String getResolution() {
