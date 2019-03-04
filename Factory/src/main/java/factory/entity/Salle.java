@@ -3,10 +3,14 @@ package factory.entity;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import factory.jsonviews.JsonViews;
+
 @Entity
 @DiscriminatorValue("S")
 public class Salle extends Materiel{
-	
+	@JsonView(JsonViews.CommonMateriel.class)
 	private Integer capacite;
 
 	public Salle() {

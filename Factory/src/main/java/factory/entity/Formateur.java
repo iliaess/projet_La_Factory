@@ -18,7 +18,6 @@ public class Formateur extends Humain{
 	
 	public Formateur() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public List<Module> getmDispenses() {
 		return mDispenses;

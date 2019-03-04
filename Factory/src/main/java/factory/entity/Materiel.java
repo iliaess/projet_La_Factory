@@ -9,15 +9,22 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import factory.jsonviews.JsonViews;
+
 @Entity(name="MATERIEL")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="type", discriminatorType=DiscriminatorType.STRING)
 public abstract class Materiel {
 	
 	@Id
+	@JsonView(JsonViews.CommonMateriel.class)
 	@GeneratedValue
 	private Long code;
+	@JsonView(JsonViews.CommonMateriel.class)
 	private Double cout;
+	@JsonView(JsonViews.CommonMateriel.class)
 	private Boolean isDispo;
 	
 	@Version
