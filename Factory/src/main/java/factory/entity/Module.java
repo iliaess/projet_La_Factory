@@ -1,32 +1,40 @@
 package factory.entity;
 
 import java.util.Date;
-import java.util.List;
-import factory.entity.Matiere;
-import factory.entity.Formateur;
-import factory.entity.Eniveau;
+
 import javax.persistence.Entity;
-import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
 @Entity
 public class Module {
 	@Id
-	Long id;
+	@GeneratedValue
+	private Long id;
 	
-	@Enumerated
-	List<Eniveau> niveau;
+	private Eniveau niveau;
 	
-	Date debut;
-	Date fin;
+	private Date debut;
+	private Date fin;
 	
-	Matiere matiere;
 	
-	Formateur formateur;
+	@ManyToOne
+	@JoinColumn(name="matiere_id")
+	private Matiere matiere;
+	
+	@ManyToOne
+	@JoinColumn(name="formateur_id")
+	private Formateur formateur;
 	
 	@Version
-	Integer version;
+	private Integer version;
+	
+	@ManyToOne
+	@JoinColumn(name="promo_id")
+	private Promo promo;
 
 	public Module() {
 	}
@@ -39,11 +47,12 @@ public class Module {
 		this.id = id;
 	}
 
-	public List<Eniveau> getNiveau() {
+
+	public Eniveau getNiveau() {
 		return niveau;
 	}
 
-	public void setNiveau(List<Eniveau> niveau) {
+	public void setNiveau(Eniveau niveau) {
 		this.niveau = niveau;
 	}
 

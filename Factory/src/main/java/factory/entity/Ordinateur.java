@@ -1,16 +1,30 @@
 package factory.entity;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 @Entity
 @DiscriminatorValue("O")
 public class Ordinateur extends Materiel{
 	
-	String processeur;
-	Integer ram;
-	Integer hdd;
-	Integer annee;
+	private String processeur;
+	private Integer ram;
+	private Integer hdd;
+	
+	private Integer annee;
+	
+	@OneToOne(mappedBy="ordinateur")
+	private Stagiaire stagiaire;
+	
+	
+	public Stagiaire getStagiaire() {
+		return stagiaire;
+	}
+	public void setStagiaire(Stagiaire stagiaire) {
+		this.stagiaire = stagiaire;
+	}
 	public Ordinateur() {
 		// TODO Auto-generated constructor stub
 	}

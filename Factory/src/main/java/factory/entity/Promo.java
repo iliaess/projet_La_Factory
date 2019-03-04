@@ -3,7 +3,9 @@ package factory.entity;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
 
@@ -11,15 +13,32 @@ import javax.persistence.Version;
 public class Promo {
 	
 	@Id
-	Long id;
-//	List<Stagiaire> listStagiaire;
-//	List<Module> listModule;
+	@GeneratedValue
+	private Long id;
+	
+	@OneToMany(mappedBy="promo")
+	private List<Stagiaire> listStagiaire;
+	
+	@OneToMany(mappedBy="promo")
+	private List<Module> listModule;
 	
 	@Version
-	Integer version;
+	private Integer version;
+	
+	private String nomPromo;
+	
+	
+
+	public String getNomPromo() {
+		return nomPromo;
+	}
+
+	public void setNomPromo(String nomPromo) {
+		this.nomPromo = nomPromo;
+	}
 
 	public Promo() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public Long getId() {
@@ -30,21 +49,21 @@ public class Promo {
 		this.id = id;
 	}
 
-//	public List<Stagiaire> getListStagiaire() {
-//		return listStagiaire;
-//	}
-//
-//	public void setListStagiaire(List<Stagiaire> listStagiaire) {
-//		this.listStagiaire = listStagiaire;
-//	}
-//
-//	public List<Module> getListModule() {
-//		return listModule;
-//	}
-//
-//	public void setListModule(List<Module> listModule) {
-//		this.listModule = listModule;
-//	}
+	public List<Stagiaire> getListStagiaire() {
+		return listStagiaire;
+	}
+
+	public void setListStagiaire(List<Stagiaire> listStagiaire) {
+		this.listStagiaire = listStagiaire;
+	}
+
+	public List<Module> getListModule() {
+		return listModule;
+	}
+
+	public void setListModule(List<Module> listModule) {
+		this.listModule = listModule;
+	}
 
 	public Integer getVersion() {
 		return version;

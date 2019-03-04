@@ -3,6 +3,7 @@ package factory.entity;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -13,24 +14,25 @@ import javax.persistence.Version;
 @DiscriminatorColumn(name = "profession", discriminatorType = DiscriminatorType.STRING)
 public abstract class Humain {
 	@Id
-	Long id;
+	@GeneratedValue
+	private Long id;
 	
-	String nom;
+	private String nom;
 
-	String prenom;
+	private String prenom;
 	
-	String email;
+	private String email;
 	
-	String telephone;
+	private String telephone;
 	
-	String rue;
+	private String rue;
 	
-	String ville;
+	private String ville;
 	
-	Integer zipcode;
+	private Integer zipcode;
 	
 	@Version
-	Integer version;
+	private Integer version;
 	
 	
 	public Humain() {

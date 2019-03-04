@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 @DiscriminatorValue("S")
 public class Salle extends Materiel{
 	
-	Integer capacite;
+	private Integer capacite;
 
 	public Salle() {
 	

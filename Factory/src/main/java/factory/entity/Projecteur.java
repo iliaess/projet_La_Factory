@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 @DiscriminatorValue("P")
 public class Projecteur extends Materiel{
 	
-	String resolution;
+	private String resolution;
 
 	public Projecteur() {
 	

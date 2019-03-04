@@ -1,20 +1,39 @@
 package factory.entity;
 
+import java.util.Collection;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
 @Entity
 public class Matiere {
 	
 	@Id
-	String titre;
-	String objectif;
-	String prerequis;
-	String contenu;
+	private String titre;
+	private String objectif;
+	private String prerequis;
+	private String contenu;
+	
+	@OneToMany(mappedBy="matiere")
+	private List<Module> listModule;
 	
 	@Version
-	Integer version;
+	private Integer version;
+	
+	
+
+
+
+	public List<Module> getListModule() {
+		return listModule;
+	}
+
+	public void setListModule(List<Module> listModule) {
+		this.listModule = listModule;
+	}
 
 	public Matiere() {
 		// TODO Auto-generated constructor stub

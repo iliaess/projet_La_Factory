@@ -3,23 +3,25 @@ package factory.entity;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Version;
 
 @Entity(name="MATERIEL")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="type", discriminatorType=DiscriminatorType.STRING)
 public abstract class Materiel {
 	
 	@Id
-	Long code;
-	Double cout;
-	Boolean isDispo;
+	@GeneratedValue
+	private Long code;
+	private Double cout;
+	private Boolean isDispo;
 	
 	@Version
-	Integer version;
+	private Integer version;
 	
 	
 	
