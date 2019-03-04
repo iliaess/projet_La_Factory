@@ -11,7 +11,7 @@ import javax.persistence.Version;
 @Entity(name="MATERIEL")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @DiscriminatorColumn(name="type", discriminatorType=DiscriminatorType.STRING)
-public class Materiel {
+public abstract class Materiel {
 	
 	@Id
 	Long code;
