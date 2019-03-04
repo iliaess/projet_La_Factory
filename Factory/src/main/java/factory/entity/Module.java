@@ -5,7 +5,6 @@ import java.util.List;
 import factory.entity.Matiere;
 import factory.entity.Formateur;
 import factory.entity.Eniveau;
-
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: Factory
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: admin
+Implementation-Vendor-Id: projet_Factory
+Build-Jdk: 1.8.0_77
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/Factory
+Created-By: Maven Integration for Eclipse
+
