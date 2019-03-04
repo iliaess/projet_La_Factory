@@ -12,8 +12,8 @@ public class Promo {
 	
 	@Id
 	Long id;
-	List<Stagiaire> listStagiaire;
-	List<Module> listModule;
+//	List<Stagiaire> listStagiaire;
+//	List<Module> listModule;
 	
 	@Version
 	Integer version;
@@ -30,21 +30,21 @@ public class Promo {
 		this.id = id;
 	}
 
-	public List<Stagiaire> getListStagiaire() {
-		return listStagiaire;
-	}
-
-	public void setListStagiaire(List<Stagiaire> listStagiaire) {
-		this.listStagiaire = listStagiaire;
-	}
-
-	public List<Module> getListModule() {
-		return listModule;
-	}
-
-	public void setListModule(List<Module> listModule) {
-		this.listModule = listModule;
-	}
+//	public List<Stagiaire> getListStagiaire() {
+//		return listStagiaire;
+//	}
+//
+//	public void setListStagiaire(List<Stagiaire> listStagiaire) {
+//		this.listStagiaire = listStagiaire;
+//	}
+//
+//	public List<Module> getListModule() {
+//		return listModule;
+//	}
+//
+//	public void setListModule(List<Module> listModule) {
+//		this.listModule = listModule;
+//	}
 
 	public Integer getVersion() {
 		return version;
