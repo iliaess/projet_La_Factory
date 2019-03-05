@@ -89,6 +89,7 @@ public class PromoRestController {
 			Promo promoEnBase = opt.get();
 			promoEnBase.setListStagiaire(promo.getListStagiaire());
 			promoEnBase.setListModule(promo.getListModule());
+			promoEnBase.setNomPromo(promo.getNomPromo());
 			promoRepository.save(promoEnBase);
 			return new ResponseEntity<>(HttpStatus.OK);
 		} else {

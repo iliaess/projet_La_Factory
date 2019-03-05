@@ -9,21 +9,30 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import factory.jsonviews.JsonViews;
+
 @Entity
 public class Module {
 	@Id
 	@GeneratedValue
+	@JsonView(JsonViews.CommonModule.class)
 	private Long id;
 
+	@JsonView(JsonViews.CommonModule.class)
 	private Date debut;
+	@JsonView(JsonViews.CommonModule.class)
 	private Date fin;
 
 	@ManyToOne
 	@JoinColumn(name = "matiere_id")
+	@JsonView(JsonViews.CommonModule.class)
 	private Matiere matiere;
 
 	@ManyToOne
 	@JoinColumn(name = "formateur_id")
+	@JsonView(JsonViews.CommonModule.class)
 	private Formateur formateur;
 
 	@Version

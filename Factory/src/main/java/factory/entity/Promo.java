@@ -8,23 +8,32 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import factory.jsonviews.JsonViews;
+
 
 @Entity
 public class Promo {
 	
 	@Id
 	@GeneratedValue
+	@JsonView(JsonViews.CommonPromo.class)
 	private Long id;
 	
 	@OneToMany(mappedBy="promo")
+	@JsonView(JsonViews.CommonPromo.class)
 	private List<Stagiaire> listStagiaire;
 	
 	@OneToMany(mappedBy="promo")
+	@JsonView(JsonViews.CommonPromo.class)
 	private List<Module> listModule;
 	
 	@Version
 	private Integer version;
 	
+	
+	@JsonView(JsonViews.CommonPromo.class)
 	private String nomPromo;
 	
 	
