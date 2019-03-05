@@ -40,9 +40,18 @@ public class Module {
 
 	@ManyToOne
 	@JoinColumn(name = "promo_id")
+	@JsonView(JsonViews.CommonModule.class)
 	private Promo promo;
 
 	public Module() {
+	}
+
+	public Promo getPromo() {
+		return promo;
+	}
+
+	public void setPromo(Promo promo) {
+		this.promo = promo;
 	}
 
 	public Long getId() {

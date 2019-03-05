@@ -74,6 +74,7 @@ public class ModuleRestController {
 			moduleEnBase.setFin(module.getFin());
 			moduleEnBase.setFormateur(module.getFormateur());
 			moduleEnBase.setMatiere(module.getMatiere());
+			moduleEnBase.setPromo(module.getPromo());
 
 			moduleRepository.save(moduleEnBase);
 			return new ResponseEntity<>(HttpStatus.OK);

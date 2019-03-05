@@ -12,38 +12,34 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import factory.jsonviews.JsonViews;
 
-
 @Entity
 public class Promo {
-	
+
 	@Id
 	@GeneratedValue
 	@JsonView(JsonViews.CommonPromo.class)
 	private Long id;
-	
-	@OneToMany(mappedBy="promo")
+
+	@OneToMany(mappedBy = "promo")
 	@JsonView(JsonViews.CommonPromo.class)
 	private List<Stagiaire> listStagiaire;
-	
-	@OneToMany(mappedBy="promo")
+
+	@OneToMany(mappedBy = "promo")
 	@JsonView(JsonViews.CommonPromo.class)
 	private List<Module> listModule;
-	
+
 	@Version
 	private Integer version;
-	
-	
-	@JsonView(JsonViews.CommonPromo.class)
-	private String nomPromo;
-	
-	
 
-	public String getNomPromo() {
-		return nomPromo;
+	@JsonView(JsonViews.CommonPromo.class)
+	private String nom;
+
+	public String getNom() {
+		return nom;
 	}
 
-	public void setNomPromo(String nomPromo) {
-		this.nomPromo = nomPromo;
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 
 	public Promo() {
@@ -81,7 +77,5 @@ public class Promo {
 	public void setVersion(Integer version) {
 		this.version = version;
 	}
-	
-	
 
 }
