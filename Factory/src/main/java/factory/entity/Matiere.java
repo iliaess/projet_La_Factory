@@ -9,13 +9,21 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import factory.jsonviews.JsonViews;
+
 @Entity
 public class Matiere {
 	
 	@Id
+	@JsonView(JsonViews.CommonMatiere.class)
 	private String titre;
+	@JsonView(JsonViews.CommonMatiere.class)
 	private String objectif;
+	@JsonView(JsonViews.CommonMatiere.class)
 	private String prerequis;
+	@JsonView(JsonViews.CommonMatiere.class)
 	private String contenu;
 	
 	@OneToMany(mappedBy="matiere")
