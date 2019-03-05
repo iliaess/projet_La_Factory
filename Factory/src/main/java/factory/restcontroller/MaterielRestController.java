@@ -1,6 +1,7 @@
 package factory.restcontroller;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,6 +42,45 @@ public class MaterielRestController {
 	@GetMapping(value= {"", "/"})
 	public ResponseEntity<List<Materiel>> list() {
 		return new ResponseEntity<List<Materiel>>(materielRepository.findAll(), HttpStatus.OK);
+	}
+	
+	@JsonView(JsonViews.CommonMateriel.class)
+	@GetMapping(value= {"/salle"})
+	public ResponseEntity<List<Materiel>> listSalle() {
+		List<Materiel> liste = materielRepository.findAll();
+		List<Materiel> listeSalle = new ArrayList<Materiel>();
+		for(Materiel m : liste) {
+			if(m.getClass().getName().equals("factory.entity.Salle")) {
+				listeSalle.add(m);
+			}
+		}
+		return new ResponseEntity<List<Materiel>>(listeSalle, HttpStatus.OK);
+	}
+	
+	@JsonView(JsonViews.CommonMateriel.class)
+	@GetMapping(value= {"/projecteur"})
+	public ResponseEntity<List<Materiel>> listProjecteur() {
+		List<Materiel> liste = materielRepository.findAll();
+		List<Materiel> listeProjecteur = new ArrayList<Materiel>();
+		for(Materiel m : liste) {
+			if(m.getClass().getName().equals("factory.entity.Projecteur")) {
+				listeProjecteur.add(m);
+			}
+		}
+		return new ResponseEntity<List<Materiel>>(listeProjecteur, HttpStatus.OK);
+	}
+	
+	@JsonView(JsonViews.CommonMateriel.class)
+	@GetMapping(value= {"/ordinateur"})
+	public ResponseEntity<List<Materiel>> listOrdinateur() {
+		List<Materiel> liste = materielRepository.findAll();
+		List<Materiel> listeOrdinateur = new ArrayList<Materiel>();
+		for(Materiel m : liste) {
+			if(m.getClass().getName().equals("factory.entity.Ordinateur")) {
+				listeOrdinateur.add(m);
+			}
+		}
+		return new ResponseEntity<List<Materiel>>(listeOrdinateur, HttpStatus.OK);
 	}
 	
 	@JsonView(JsonViews.CommonMateriel.class)

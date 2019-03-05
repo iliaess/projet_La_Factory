@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import factory.jsonviews.JsonViews;
 
-@Entity(name="MATERIEL")
+@Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="type", discriminatorType=DiscriminatorType.STRING)
 public abstract class Materiel {

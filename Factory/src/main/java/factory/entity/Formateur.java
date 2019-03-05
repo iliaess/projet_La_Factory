@@ -6,34 +6,38 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import factory.jsonviews.JsonViews;
+
 @Entity
 @DiscriminatorValue("F")
-public class Formateur extends Humain{
-	
-	@OneToMany(mappedBy="formateur")
-	private List<Module> mDispenses;
-	
-	@OneToMany(mappedBy="formateur")
-	private List<Module> mDispensables;
-	
+public class Formateur extends Humain {
+	@JsonView(JsonViews.CommonHumain.class)
+	@OneToMany(mappedBy = "formateur")
+	private List<Module> dispenses;
+	@JsonView(JsonViews.CommonHumain.class)
+	@OneToMany(mappedBy = "formateur")
+	private List<Module> dispensables;
+
 	public Formateur() {
 		super();
 	}
-	public List<Module> getmDispenses() {
-		return mDispenses;
+
+	public List<Module> getDispenses() {
+		return dispenses;
 	}
-	public void setmDispenses(List<Module> mDispenses) {
-		this.mDispenses = mDispenses;
+
+	public void setDispenses(List<Module> dispenses) {
+		this.dispenses = dispenses;
 	}
-	public List<Module> getmDispensables() {
-		return mDispensables;
+
+	public List<Module> getDispensables() {
+		return dispensables;
 	}
-	public void setmDispensables(List<Module> mDispensables) {
-		this.mDispensables = mDispensables;
+
+	public void setDispensables(List<Module> dispensables) {
+		this.dispensables = dispensables;
 	}
-	
-	
-	
-	
 
 }

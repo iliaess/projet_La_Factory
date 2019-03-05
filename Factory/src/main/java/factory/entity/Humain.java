@@ -9,26 +9,31 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import factory.jsonviews.JsonViews;
+
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "profession", discriminatorType = DiscriminatorType.STRING)
 public abstract class Humain {
 	@Id
+	@JsonView(JsonViews.CommonHumain.class)
 	@GeneratedValue
 	private Long id;
-	
+	@JsonView(JsonViews.CommonHumain.class)
 	private String nom;
-
+	@JsonView(JsonViews.CommonHumain.class)
 	private String prenom;
-	
+	@JsonView(JsonViews.CommonHumain.class)
 	private String email;
-	
+	@JsonView(JsonViews.CommonHumain.class)
 	private String telephone;
-	
+	@JsonView(JsonViews.CommonHumain.class)
 	private String rue;
-	
+	@JsonView(JsonViews.CommonHumain.class)
 	private String ville;
-	
+	@JsonView(JsonViews.CommonHumain.class)
 	private Integer zipcode;
 	
 	@Version
