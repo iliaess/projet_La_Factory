@@ -37,13 +37,13 @@ public class ModuleRestController {
 	@Autowired
 	ModuleRepository moduleRepository;
 	
-	@JsonView(JsonViews.CommonModule.class)
+	@JsonView(JsonViews.IModule.class)
 	@GetMapping(value= {"", "/"})
 	public ResponseEntity<List<Module>> list() {
 		return new ResponseEntity<List<Module>>(moduleRepository.findAll(), HttpStatus.OK);
 	}
 	
-	@JsonView(JsonViews.CommonModule.class)
+	@JsonView(JsonViews.IModule.class)
 	@GetMapping("/{id}")
 	public ResponseEntity<Module> findById(@PathVariable(name="id") Long id){
 		Optional<Module> opt = moduleRepository.findById(id);

@@ -35,18 +35,23 @@ public class PromoRestController {
 	@Autowired
 	private PromoRepository promoRepository;
 
-	@JsonView(JsonViews.CommonPromo.class)
+	@JsonView(JsonViews.IPromo.class)
 	@GetMapping(value = { "", "/" })
 	public ResponseEntity<List<Promo>> list() {
 		return new ResponseEntity<List<Promo>>(promoRepository.findAll(), HttpStatus.OK);
 	}
 
-////	@JsonView(JsonViews.promoWithStagiaire.class)
-//	@GetMapping("/Stagiaires")
-//	public ResponseEntity<List<Promo>> listWithStagiaire() {
-//		return new ResponseEntity<List<Promo>>(promoRepository.findAll(), HttpStatus.OK);
-//	}
-
+	@JsonView(JsonViews.IPromo.class)
+	@GetMapping("/{id}")
+	public ResponseEntity<Promo> findById(@PathVariable(name = "id") Long id) {
+		Optional<Promo> opt = promoRepository.findById(id);
+		if (opt.isPresent()) {
+			return new ResponseEntity<Promo>(opt.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<Promo>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
 	@PostMapping(value = { "", "/" })
 	public ResponseEntity<Void> insert(@Valid @RequestBody Promo promo, BindingResult br, UriComponentsBuilder uCB) {
 		if (br.hasErrors()) {
@@ -59,27 +64,6 @@ public class PromoRestController {
 		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 	}
 
-	@JsonView(JsonViews.CommonPromo.class)
-	@GetMapping("/{id}")
-	public ResponseEntity<Promo> findById(@PathVariable(name = "id") Long id) {
-		Optional<Promo> opt = promoRepository.findById(id);
-		if (opt.isPresent()) {
-			return new ResponseEntity<Promo>(opt.get(), HttpStatus.OK);
-		} else {
-			return new ResponseEntity<Promo>(HttpStatus.NOT_FOUND);
-		}
-	}
-
-////@JsonView(JsonViews.promoWithStagiaire.class)
-//	@GetMapping("/{id}/Stagiaire")
-//	public ResponseEntity<Promo> findByIdWithStagiaire(@PathVariable(name = "id") Long id) {
-//		Optional<Promo> opt = promoRepository.findById(id);
-//		if (opt.isPresent()) {
-//			return new ResponseEntity<Promo>(opt.get(), HttpStatus.OK);
-//		} else {
-//			return new ResponseEntity<Promo>(HttpStatus.NOT_FOUND);
-//		}
-//	}
 
 	@PutMapping("/{id}")
 	public ResponseEntity<Void> update(@Valid @RequestBody Promo promo, BindingResult br,

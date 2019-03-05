@@ -38,13 +38,13 @@ public class HumainRestController {
 	@Autowired
 	HumainRepository humainRepository;
 	
-	@JsonView(JsonViews.CommonHumain.class)
+	@JsonView(JsonViews.IHumain.class)
 	@GetMapping(value= {"", "/"})
 	public ResponseEntity<List<Humain>> list() {
 		return new ResponseEntity<List<Humain>>(humainRepository.findAll(), HttpStatus.OK);
 	}
 	
-	@JsonView(JsonViews.CommonHumain.class)
+	@JsonView(JsonViews.IHumain.class)
 	@GetMapping(value= {"/gestionnaire"})
 	public ResponseEntity<List<Humain>> listGestionnaire() {
 		List<Humain> liste = humainRepository.findAll();
@@ -57,7 +57,7 @@ public class HumainRestController {
 		return new ResponseEntity<List<Humain>>(listeGestionnaire, HttpStatus.OK);
 	}
 	
-	@JsonView(JsonViews.CommonHumain.class)
+	@JsonView(JsonViews.IHumain.class)
 	@GetMapping(value= {"/technicien"})
 	public ResponseEntity<List<Humain>> listTechnicien() {
 		List<Humain> liste = humainRepository.findAll();
@@ -70,7 +70,7 @@ public class HumainRestController {
 		return new ResponseEntity<List<Humain>>(listeTechnicien, HttpStatus.OK);
 	}
 	
-	@JsonView(JsonViews.CommonHumain.class)
+	@JsonView(JsonViews.IHumain.class)
 	@GetMapping(value= {"/formateur"})
 	public ResponseEntity<List<Humain>> listFormateur() {
 		List<Humain> liste = humainRepository.findAll();
@@ -83,7 +83,7 @@ public class HumainRestController {
 		return new ResponseEntity<List<Humain>>(listeFormateur, HttpStatus.OK);
 	}
 	
-	@JsonView(JsonViews.CommonHumain.class)
+	@JsonView(JsonViews.IHumain.class)
 	@GetMapping(value= {"/stagiaire"})
 	public ResponseEntity<List<Humain>> listStagiaire() {
 		List<Humain> liste = humainRepository.findAll();
@@ -97,7 +97,7 @@ public class HumainRestController {
 	}
 	
 	
-	@JsonView(JsonViews.CommonHumain.class)
+	@JsonView(JsonViews.IHumain.class)
 	@GetMapping("/{id}")
 	public ResponseEntity<Humain> findById(@PathVariable(name="id") Long id){
 		Optional<Humain> opt = humainRepository.findById(id);
@@ -107,13 +107,13 @@ public class HumainRestController {
 		return new ResponseEntity<Humain>(HttpStatus.NOT_FOUND);
 	}
 	
-	@JsonView(JsonViews.CommonHumain.class)
+	@JsonView(JsonViews.IHumain.class)
 	@GetMapping("/{id}/ordinateur")
 	public ResponseEntity<Ordinateur> findByIdOrdinateur(@PathVariable(name="id") Long id){
 		Optional<Humain> opt = humainRepository.findById(id);
 		if(opt.isPresent()) {
 			System.out.println(opt.get().toString());
-			System.out.println(((Stagiaire) opt.get()).getOrdinateur());
+			System.out.println(((Stagiaire) opt.get()).getOrdinateur().getProcesseur());
 			return new ResponseEntity<Ordinateur>(((Stagiaire) opt.get()).getOrdinateur(),HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);

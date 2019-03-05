@@ -10,7 +10,7 @@ import factory.jsonviews.JsonViews;
 @Entity
 @DiscriminatorValue("S")
 public class Salle extends Materiel{
-	@JsonView(JsonViews.CommonMateriel.class)
+	@JsonView(JsonViews.IMateriel.class)
 	private Integer capacite;
 
 	public Salle() {

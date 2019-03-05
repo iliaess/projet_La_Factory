@@ -38,13 +38,13 @@ public class MaterielRestController {
 	@Autowired
 	MaterielRepository materielRepository;
 	
-	@JsonView(JsonViews.CommonMateriel.class)
+	@JsonView(JsonViews.IMateriel.class)
 	@GetMapping(value= {"", "/"})
 	public ResponseEntity<List<Materiel>> list() {
 		return new ResponseEntity<List<Materiel>>(materielRepository.findAll(), HttpStatus.OK);
 	}
 	
-	@JsonView(JsonViews.CommonMateriel.class)
+	@JsonView(JsonViews.IMateriel.class)
 	@GetMapping(value= {"/salle"})
 	public ResponseEntity<List<Materiel>> listSalle() {
 		List<Materiel> liste = materielRepository.findAll();
@@ -57,7 +57,7 @@ public class MaterielRestController {
 		return new ResponseEntity<List<Materiel>>(listeSalle, HttpStatus.OK);
 	}
 	
-	@JsonView(JsonViews.CommonMateriel.class)
+	@JsonView(JsonViews.IMateriel.class)
 	@GetMapping(value= {"/projecteur"})
 	public ResponseEntity<List<Materiel>> listProjecteur() {
 		List<Materiel> liste = materielRepository.findAll();
@@ -70,7 +70,7 @@ public class MaterielRestController {
 		return new ResponseEntity<List<Materiel>>(listeProjecteur, HttpStatus.OK);
 	}
 	
-	@JsonView(JsonViews.CommonMateriel.class)
+	@JsonView(JsonViews.IMateriel.class)
 	@GetMapping(value= {"/ordinateur"})
 	public ResponseEntity<List<Materiel>> listOrdinateur() {
 		List<Materiel> liste = materielRepository.findAll();
@@ -83,7 +83,7 @@ public class MaterielRestController {
 		return new ResponseEntity<List<Materiel>>(listeOrdinateur, HttpStatus.OK);
 	}
 	
-	@JsonView(JsonViews.CommonMateriel.class)
+	@JsonView(JsonViews.IMateriel.class)
 	@GetMapping("/{id}")
 	public ResponseEntity<Materiel> findById(@PathVariable(name="id") Long id){
 		Optional<Materiel> opt = materielRepository.findById(id);

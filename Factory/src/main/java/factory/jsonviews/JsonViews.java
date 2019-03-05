@@ -1,23 +1,51 @@
 package factory.jsonviews;
 
 public class JsonViews {
-	public static interface CommonMateriel {
+	public static interface HumainMaterielMatiereModulePromo {
 
 	};
 
-	public static interface CommonHumain {
+	public static interface HumainMaterielMatiereModule extends HumainMaterielMatiereModulePromo {
 
 	};
 
-	public static interface CommonPromo {
+	public static interface HumainMaterielMatierePromo extends HumainMaterielMatiereModulePromo {
 
 	};
 
-	public static interface CommonMatiere {
+	public static interface HumainMaterielModulePromo extends HumainMaterielMatiereModulePromo {
 
 	};
 
-	public static interface CommonModule {
+	public static interface HumainMatiereModulePromo extends HumainMaterielMatiereModulePromo {
 
 	};
+
+	public static interface MaterielMatiereModulePromo extends HumainMaterielMatiereModulePromo {
+
+	};
+
+	public static interface IMateriel extends HumainMaterielMatiereModule, HumainMaterielMatierePromo,
+			HumainMaterielModulePromo, MaterielMatiereModulePromo {
+
+	};
+
+	public static interface IHumain extends HumainMaterielMatiereModule, HumainMaterielMatierePromo,
+			HumainMaterielModulePromo, HumainMatiereModulePromo {
+
+	};
+
+	public static interface IMatiere extends HumainMaterielMatiereModule, HumainMaterielMatierePromo,
+			HumainMatiereModulePromo, MaterielMatiereModulePromo {
+
+	};
+	
+	public static interface IModule extends HumainMaterielMatiereModule, HumainMaterielModulePromo, HumainMatiereModulePromo, MaterielMatiereModulePromo{
+		
+	};
+	
+	public static interface IPromo extends HumainMaterielMatierePromo, HumainMaterielModulePromo, HumainMatiereModulePromo, MaterielMatiereModulePromo {
+		
+	};
+	
 }

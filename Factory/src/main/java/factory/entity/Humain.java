@@ -18,22 +18,22 @@ import factory.jsonviews.JsonViews;
 @DiscriminatorColumn(name = "profession", discriminatorType = DiscriminatorType.STRING)
 public abstract class Humain {
 	@Id
-	@JsonView(JsonViews.CommonHumain.class)
+	@JsonView(JsonViews.HumainMaterielMatiereModulePromo.class)
 	@GeneratedValue
 	private Long id;
-	@JsonView(JsonViews.CommonHumain.class)
+	@JsonView(JsonViews.HumainMaterielMatiereModulePromo.class)
 	private String nom;
-	@JsonView(JsonViews.CommonHumain.class)
+	@JsonView(JsonViews.HumainMaterielMatiereModulePromo.class)
 	private String prenom;
-	@JsonView(JsonViews.CommonHumain.class)
+	@JsonView(JsonViews.HumainMaterielMatiereModulePromo.class)
 	private String email;
-	@JsonView(JsonViews.CommonHumain.class)
+	@JsonView(JsonViews.HumainMaterielMatiereModulePromo.class)
 	private String telephone;
-	@JsonView(JsonViews.CommonHumain.class)
+	@JsonView(JsonViews.HumainMaterielMatiereModulePromo.class)
 	private String rue;
-	@JsonView(JsonViews.CommonHumain.class)
+	@JsonView(JsonViews.HumainMaterielMatiereModulePromo.class)
 	private String ville;
-	@JsonView(JsonViews.CommonHumain.class)
+	@JsonView(JsonViews.HumainMaterielMatiereModulePromo.class)
 	private Integer zipcode;
 	
 	@Version

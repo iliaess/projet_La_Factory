@@ -10,7 +10,7 @@ import factory.jsonviews.JsonViews;
 @Entity
 @DiscriminatorValue("P")
 public class Projecteur extends Materiel{
-	@JsonView(JsonViews.CommonMateriel.class)
+	@JsonView(JsonViews.IMateriel.class)
 	private String resolution;
 
 	public Projecteur() {

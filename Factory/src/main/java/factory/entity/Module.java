@@ -17,22 +17,22 @@ import factory.jsonviews.JsonViews;
 public class Module {
 	@Id
 	@GeneratedValue
-	@JsonView(JsonViews.CommonModule.class)
+	@JsonView(JsonViews.HumainMaterielMatiereModulePromo.class)
 	private Long id;
 
-	@JsonView(JsonViews.CommonModule.class)
+	@JsonView(JsonViews.HumainMaterielMatiereModulePromo.class)
 	private Date debut;
-	@JsonView(JsonViews.CommonModule.class)
+	@JsonView(JsonViews.HumainMaterielMatiereModulePromo.class)
 	private Date fin;
 
 	@ManyToOne
 	@JoinColumn(name = "matiere_id")
-	@JsonView(JsonViews.CommonModule.class)
+	@JsonView(JsonViews.HumainMatiereModulePromo.class)
 	private Matiere matiere;
 
 	@ManyToOne
 	@JoinColumn(name = "formateur_id")
-	@JsonView(JsonViews.CommonModule.class)
+	@JsonView(JsonViews.MaterielMatiereModulePromo.class)
 	private Formateur formateur;
 
 	@Version
@@ -40,7 +40,7 @@ public class Module {
 
 	@ManyToOne
 	@JoinColumn(name = "promo_id")
-	@JsonView(JsonViews.CommonModule.class)
+	@JsonView(JsonViews.HumainMaterielMatiereModule.class)
 	private Promo promo;
 
 	public Module() {

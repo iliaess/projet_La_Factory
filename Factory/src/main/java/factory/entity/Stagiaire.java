@@ -17,12 +17,13 @@ import factory.jsonviews.JsonViews;
 public class Stagiaire extends Humain {
 	
 	
-	@JsonView(JsonViews.CommonHumain.class)
-	@OneToOne(fetch = FetchType.EAGER)
+	@JsonView(JsonViews.HumainMatiereModulePromo.class)
+	@OneToOne
 	private Ordinateur ordinateur;
 	
-	@JsonView(JsonViews.CommonHumain.class)
+	
 	@ManyToOne
+	@JsonView(JsonViews.HumainMaterielMatiereModule.class)
 	@JoinColumn(name="promo_id")
 	private Promo promo;
 	

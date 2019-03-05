@@ -39,13 +39,13 @@ public class MatiereRestController {
 	@Autowired
 	MatiereRepository matiereRepository;
 	
-	@JsonView(JsonViews.CommonMatiere.class)
+	@JsonView(JsonViews.IMatiere.class)
 	@GetMapping(value= {"", "/"})
 	public ResponseEntity<List<Matiere>> list() {
 		return new ResponseEntity<List<Matiere>>(matiereRepository.findAll(), HttpStatus.OK);
 	}
 	
-	@JsonView(JsonViews.CommonMatiere.class)
+	@JsonView(JsonViews.IMatiere.class)
 	@GetMapping("/{titre}")
 	public ResponseEntity<Matiere> findByTitre(@PathVariable(name="titre") String titre){
 		Optional<Matiere> opt = matiereRepository.findByTitre(titre);
