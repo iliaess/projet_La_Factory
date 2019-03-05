@@ -32,6 +32,7 @@ public class Matiere {
 	@Version
 	private Integer version;
 	
+	@JsonView(JsonViews.CommonMatiere.class)
 	@Enumerated(EnumType.STRING)
 	private ENiveau niveau;
 
