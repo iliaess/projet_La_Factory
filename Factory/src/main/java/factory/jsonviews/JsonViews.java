@@ -1,51 +1,29 @@
 package factory.jsonviews;
 
 public class JsonViews {
-	public static interface HumainMaterielMatiereModulePromo {
-
-	};
-
-	public static interface HumainMaterielMatiereModule extends HumainMaterielMatiereModulePromo {
-
-	};
-
-	public static interface HumainMaterielMatierePromo extends HumainMaterielMatiereModulePromo {
-
-	};
-
-	public static interface HumainMaterielModulePromo extends HumainMaterielMatiereModulePromo {
-
-	};
-
-	public static interface HumainMatiereModulePromo extends HumainMaterielMatiereModulePromo {
-
-	};
-
-	public static interface MaterielMatiereModulePromo extends HumainMaterielMatiereModulePromo {
-
-	};
-
-	public static interface IMateriel extends HumainMaterielMatiereModule, HumainMaterielMatierePromo,
-			HumainMaterielModulePromo, MaterielMatiereModulePromo {
-
-	};
-
-	public static interface IHumain extends HumainMaterielMatiereModule, HumainMaterielMatierePromo,
-			HumainMaterielModulePromo, HumainMatiereModulePromo {
-
-	};
-
-	public static interface IMatiere extends HumainMaterielMatiereModule, HumainMaterielMatierePromo,
-			HumainMatiereModulePromo, MaterielMatiereModulePromo {
-
-	};
+	public static interface IHumainMateriel{};
+	public static interface IHumainMatiereModule{};
+	public static interface IHumainMatiere extends IHumainMatiereModule{};
+	public static interface IHumainMatiereMateriel {};
 	
-	public static interface IModule extends HumainMaterielMatiereModule, HumainMaterielModulePromo, HumainMatiereModulePromo, MaterielMatiereModulePromo{
-		
-	};
+	public static interface IHumainModule{};
+	public static interface IMatiereModule{};
+	public static interface IHumainMatiereMaterielModule{};
+	public static interface IHumainMatiereMaterielModulePromo{};
+	public static interface IMaterielMatiereModulePromo{};
+	public static interface IMatiereModulePromo{};
+	public static interface IHumainPromo{};
+	public static interface IHumainMatiereModulePromo{};
 	
-	public static interface IPromo extends HumainMaterielMatierePromo, HumainMaterielModulePromo, HumainMatiereModulePromo, MaterielMatiereModulePromo {
-		
-	};
+	
+	public static interface IMateriel extends IHumainMateriel,IHumainMatiereMaterielModule,IHumainMatiereMaterielModulePromo,IMaterielMatiereModulePromo{};
+	
+	public static interface IHumain extends IHumainMateriel, IHumainMatiereModule, IHumainMatiere,IHumainMatiereMaterielModule,IHumainMatiereMaterielModulePromo,IHumainPromo,IHumainMatiereModulePromo {};
+	
+	public static interface IMatiere extends IHumainMatiereModule, IHumainMatiere,IHumainMatiereMateriel,IMatiereModule,IHumainMatiereMaterielModule,IHumainMatiereMaterielModulePromo,IMaterielMatiereModulePromo,IMatiereModulePromo,IHumainMatiereModulePromo{};
+	
+	public static interface IModule extends IHumainMatiereModule, IHumainModule,IMatiereModule,IHumainMatiereMaterielModule,IHumainMatiereMaterielModulePromo,IMaterielMatiereModulePromo,IMatiereModulePromo,IHumainMatiereModulePromo{};
+	
+	public static interface IPromo extends IHumainMatiereMaterielModulePromo,IMaterielMatiereModulePromo,IMatiereModulePromo,IHumainPromo,IHumainMatiereModulePromo{};
 	
 }

@@ -17,22 +17,21 @@ public class Promo {
 
 	@Id
 	@GeneratedValue
-	@JsonView(JsonViews.HumainMaterielMatiereModulePromo.class)
+	@JsonView(JsonViews.IHumainMatiereMaterielModulePromo.class)
 	private Long id;
+	@JsonView(JsonViews.IHumainMatiereMaterielModulePromo.class)
+	private String nom;
 
 	@OneToMany(mappedBy = "promo")
-	@JsonView(JsonViews.MaterielMatiereModulePromo.class)
+	@JsonView(JsonViews.IMatiereModulePromo.class)
 	private List<Stagiaire> listStagiaire;
 
 	@OneToMany(mappedBy = "promo")
-	@JsonView(JsonViews.HumainMaterielMatierePromo.class)
+	@JsonView(JsonViews.IPromo.class)
 	private List<Module> listModule;
 
 	@Version
 	private Integer version;
-
-	@JsonView(JsonViews.HumainMaterielMatiereModulePromo.class)
-	private String nom;
 
 	public String getNom() {
 		return nom;

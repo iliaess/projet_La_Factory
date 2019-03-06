@@ -19,12 +19,12 @@ import factory.jsonviews.JsonViews;
 public abstract class Materiel {
 	
 	@Id
-	@JsonView(JsonViews.HumainMaterielMatiereModulePromo.class)
+	@JsonView(JsonViews.IHumainMateriel.class)
 	@GeneratedValue
 	private Long code;
-	@JsonView(JsonViews.HumainMaterielMatiereModulePromo.class)
+	@JsonView(JsonViews.IHumainMateriel.class)
 	private Double cout;
-	@JsonView(JsonViews.HumainMaterielMatiereModulePromo.class)
+	@JsonView(JsonViews.IHumainMateriel.class)
 	private Boolean isDispo;
 	
 	@Version

@@ -20,26 +20,26 @@ import factory.jsonviews.JsonViews;
 public class Matiere {
 
 	@Id
-	@JsonView(JsonViews.HumainMaterielMatiereModulePromo.class)
+	@JsonView(JsonViews.IHumainMatiereModule.class)
 	private String titre;
-	@JsonView(JsonViews.HumainMaterielMatiereModulePromo.class)
+	@JsonView(JsonViews.IHumainMatiereModule.class)
 	private String objectif;
-	@JsonView(JsonViews.HumainMaterielMatiereModulePromo.class)
+	@JsonView(JsonViews.IHumainMatiereModule.class)
 	private String prerequis;
-	@JsonView(JsonViews.HumainMaterielMatiereModulePromo.class)
+	@JsonView(JsonViews.IHumainMatiereModule.class)
 	private String contenu;
+	@JsonView(JsonViews.IHumainMatiereModule.class)
+	@Enumerated(EnumType.STRING)
+	private ENiveau niveau;
 
 	@OneToMany(mappedBy = "matiere")
-	@JsonView(JsonViews.HumainMaterielMatierePromo.class)
+	@JsonView(JsonViews.IHumainMatiere.class)
 	private List<Module> listModule;
 
 	@Version
 	private Integer version;
-	@JsonView(JsonViews.HumainMaterielMatiereModulePromo.class)
-	@Enumerated(EnumType.STRING)
-	private ENiveau niveau;
 
-	@JsonView(JsonViews.MaterielMatiereModulePromo.class)
+	//@JsonView(JsonViews.MaterielMatiereModulePromo.class)
 	@ManyToMany(mappedBy = "dispensables")
 	private List<Formateur> formateurs;
 

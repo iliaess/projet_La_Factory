@@ -23,13 +23,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import factory.entity.Materiel;
 import factory.entity.Matiere;
-import factory.entity.Ordinateur;
-import factory.entity.Projecteur;
-import factory.entity.Salle;
 import factory.jsonviews.JsonViews;
-import factory.repository.MaterielRepository;
 import factory.repository.MatiereRepository;
 
 @RestController

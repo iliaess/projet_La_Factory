@@ -11,15 +11,14 @@ import factory.jsonviews.JsonViews;
 @Entity
 @DiscriminatorValue("O")
 public class Ordinateur extends Materiel{
-	@JsonView(JsonViews.HumainMaterielMatiereModulePromo.class)
 	private String processeur;
-	@JsonView(JsonViews.HumainMaterielMatiereModulePromo.class)
+	@JsonView(JsonViews.IHumainMateriel.class)
 	private Integer ram;
-	@JsonView(JsonViews.HumainMaterielMatiereModulePromo.class)
+	@JsonView(JsonViews.IHumainMateriel.class)
 	private Integer hdd;
-	@JsonView(JsonViews.HumainMaterielMatiereModulePromo.class)
+	@JsonView(JsonViews.IHumainMateriel.class)
 	private Integer annee;
-	@JsonView(JsonViews.MaterielMatiereModulePromo.class)
+	@JsonView(JsonViews.IMateriel.class)
 	@OneToOne(mappedBy="ordinateur")
 	private Stagiaire stagiaire;
 	

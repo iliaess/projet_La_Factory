@@ -16,10 +16,10 @@ import factory.jsonviews.JsonViews;
 @Entity
 @DiscriminatorValue("F")
 public class Formateur extends Humain {
-	@JsonView(JsonViews.HumainMaterielMatierePromo.class)
+	@JsonView(JsonViews.IHumainMateriel.class)
 	@OneToMany(mappedBy = "formateur")
 	private List<Module> dispenses;
-	@JsonView(JsonViews.HumainMaterielModulePromo.class)
+	@JsonView(JsonViews.IHumainMateriel.class)
 	@ManyToMany
 	@JoinTable(name = "Dispensables_Formateurs", 
 	joinColumns = @JoinColumn(name = "formateur_id"), 

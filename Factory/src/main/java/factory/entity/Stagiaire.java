@@ -17,13 +17,13 @@ import factory.jsonviews.JsonViews;
 public class Stagiaire extends Humain {
 	
 	
-	@JsonView(JsonViews.HumainMatiereModulePromo.class)
+	@JsonView(JsonViews.IHumain.class)
 	@OneToOne
 	private Ordinateur ordinateur;
 	
 	
 	@ManyToOne
-	@JsonView(JsonViews.HumainMaterielMatiereModule.class)
+	@JsonView(JsonViews.IHumainMateriel.class)
 	@JoinColumn(name="promo_id")
 	private Promo promo;
 	
